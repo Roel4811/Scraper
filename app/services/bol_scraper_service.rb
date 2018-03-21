@@ -9,27 +9,31 @@ class BolScraperService
     html = Nokogiri::HTML(response)
 
     products = html.search('#js_items_content li.product-item--column')
-    products.each do |product|
-      name = product.search('a.product-title').text.strip
-      image = product.search('a.product-image img').attr('src').text.strip
-      link = product.search('a.product-image').attr('href').value
-      price = product.search('meta').attr('content').value.to_f
-      rating = product.search('.rating-stars').attr('title').value
-      review_amount = product.search('.rating-stars__rating-count').text.split('').map {|x| x[/\d+/]}.join.to_i
-      available = product.search('.medium--is-visible').text.blank? ? false : true
-      latest_order_time = product.search('.medium--is-visible').text.slice(0..80).strip
-      # puts "#{name}--#{price}--#{rating}"
-      # puts "#{name}--#{price}--#{review_amount}"
-      puts "#{name}--#{price}--#{latest_order_time}"
-      # puts "#{name}--#{price}--#{link}"
-      # puts "#{name}--#{price}--#{latest_order_time}"
+    products.each_with_index do |pr, i|
+      name = pr.search('a.product-title').text.strip
+      store_id = pr.attr("data-id").to_i
+      image = pr.search('a.product-image img').attr('src').text.strip
+      link = pr.search('a.product-image').attr('href').value
+      price = html.xpath("//*[@id='js_items_content']/li[#{i+1}]/div[2]/div[2]/span/div/div/div/meta").attr("content").value.to_f
+      rating = pr.search('.rating-stars').attr('title').value
+      review_amount = pr.search('.rating-stars__rating-count').text.split('').map {|x| x[/\d+/]}.join.to_i
+      available = html.xpath("//*[@id='js_items_content']/li[#{i+1}]/div[2]/div[3]/div/text()").text.blank? ? false : true
+      availability = html.xpath("//*[@id='js_items_content']/li[#{i+1}]/div[2]/div[3]/div/text()").text.strip
+
+      product = Product.find_or_initialize_by(store_id: store_id)
+      product.name = name if name.present?
+      product.image = image if image.present?
+      product.link = link if link.present?
+      product.price = price if price.pr
+      product.rating = rating if rating.present?
+      product.review_amount = review_amount if review_amount.present?
+      product.available = available if available.present?
+      product.availability = availability if availability.present?
+
+      binding.pry
+      product.save if product.new_record? || product.changed?
     end
-    binding.pry
-
-
-
   end
-
 end
 
 
