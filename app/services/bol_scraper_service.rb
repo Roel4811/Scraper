@@ -4,7 +4,7 @@ require 'open-uri'
 class BolScraperService
 
   def call
-    url = "https://www.bol.com/nl/l/anker-powerbanks/N/18135/filter_N/4294856588/?view=tiles"
+    url = "https://www.bol.com/nl/l/anker-powerbanks/N/18135/filter_N/4294856588/?page=2&view=tiles"
     response = open(url)
     html = Nokogiri::HTML(response)
 
@@ -24,13 +24,12 @@ class BolScraperService
       product.name = name if name.present?
       product.image = image if image.present?
       product.link = link if link.present?
-      product.price = price if price.pr
+      product.price = price if price.present?
       product.rating = rating if rating.present?
       product.review_amount = review_amount if review_amount.present?
       product.available = available if available.present?
       product.availability = availability if availability.present?
 
-      binding.pry
       product.save if product.new_record? || product.changed?
     end
   end
