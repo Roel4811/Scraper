@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nostalgique</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_pack_tag 'admin/application' %>
+    <meta name="robots" content="noindex, nofollow">
+  </head>
+
+  <body class="<%= controller_name %> <%= action_name %>">
+    <div id="main-content" class="main-content">
+      <%#= flash_msgs %>
+      <%= yield %>
+    </div>
+    <%= javascript_pack_tag 'admin/application' %>
+  </body>
+</html>
