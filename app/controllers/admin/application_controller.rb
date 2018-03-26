@@ -5,4 +5,8 @@ class Admin::ApplicationController < ActionController::Base
 
   def home
   end
+
+  def scraper_input
+    url = params[:url]
+  end
 end
