@@ -8,5 +8,12 @@ class Admin::ApplicationController < ActionController::Base
 
   def scraper_input
     url = params[:url]
+    service = params[:service]
+  end
+
+  private
+
+  def scraper_input_params
+
   end
 end
