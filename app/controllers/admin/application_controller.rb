@@ -9,6 +9,12 @@ class Admin::ApplicationController < ActionController::Base
   def scraper_input
     url = params[:url]
     service = params[:service]
+
+    if service == 'Bol'
+      @records = BolScraperService.new(url).call
+    elsif service == 'Coolblue'
+      @records = CbScraperService.new(url).call
+    end
   end
 
   private
