@@ -3,6 +3,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: "pages#home"
-    post "application#scraper_input"
+    get '/scraper-input', to: "application#scraper_input"
   end
 end
