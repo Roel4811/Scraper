@@ -1,3 +1,17 @@
 <%= admin_c("page") do %>
   <%= admin_c("navbar") %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <%= admin_c("searchBox") %>
+      </div>
+      <div class="col-md-6">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="scrape-results-table" id="scrape-results"></div>
+      </div>
+    </div>
+  </div>
 <% end %>
