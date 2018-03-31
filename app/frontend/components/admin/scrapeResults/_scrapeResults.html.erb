@@ -1,0 +1,17 @@
+<table class="">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>in DB</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @records.each do |record| %>
+      <tr class="">
+        <td><%= record['name'] %></td>
+        <td><%= Product.find_by(store_id: record['store_id']) ? "<i class='fa fa-check'></i>".html_safe : "<i class='fa fa-minus'></i>".html_safe %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
