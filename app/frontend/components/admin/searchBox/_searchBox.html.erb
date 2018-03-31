@@ -1,0 +1,13 @@
+<div class="search-box">
+  <%= form_tag(admin_scraper_input_path, method: 'get', remote: true) do %>
+    <div class="input-group">
+      <%= label_tag(:url, "Specify URL") %>
+      <%= text_field_tag(:url) %>
+    </div>
+    <div class="input-group">
+      <%= label_tag(:service, "Specify service") %>
+      <%= select_tag(:service, options_for_select([['Bol'], ['Coolblue']], 1), class: "custom-select") %>
+    </div>
+    <%= submit_tag("Scrape", class: "btn btn-primary") %>
+  <% end %>
+</div>

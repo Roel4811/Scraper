@@ -1,0 +1,24 @@
+.search-box {
+  margin: 20px 0;
+  padding: 20px;
+  box-shadow: #d0d0d0 0 0 10px 0px;
+  background-color: white;
+  form {
+    overflow: auto;
+    .input-group {
+      margin-bottom: 20px;
+      label {
+        display: block;
+      }
+      input#url {
+        width: 100%;
+      }
+      select {
+        width: 100%;
+      }
+    }
+    input.btn {
+      // margin-top: 20px;
+    }
+  }
+}
