@@ -5,10 +5,14 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
+      <%= link_to "Home", admin_root_path, class: "nav-item nav-link " + current_class?(admin_root_path) %>
+      <%= link_to "Database", admin_database_path, class: "nav-item nav-link " + current_class?(admin_database_path) %>
+      <%= link_to "Pricing", root_path, class: "nav-item nav-link " + current_class?(root_path) %>
+      <%= link_to "Disabled", root_path, class: "nav-item nav-link " + current_class?(root_path) %>
+      <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Database</a>
       <a class="nav-item nav-link" href="#">Pricing</a>
-      <a class="nav-item nav-link" href="#">Disabled</a>
+      <a class="nav-item nav-link" href="#">Disabled</a> -->
     </div>
   </div>
 </nav>
