@@ -3,11 +3,17 @@ require 'open-uri'
 
 class CbScraperService
 
+  attr_reader :url
+
+  def initialize(url)
+    @url = url
+  end
+
   def call
-    url = "https://www.coolblue.nl/zoeken/producttype:powerbanks/merk:trust?query=powerbanks"
     response = open(url)
     html = Nokogiri::HTML(response)
 
+    records = []
     products = html.search(".product")
     products.each do |pr, i|
       name = pr.search(".product__title").text.strip
@@ -21,6 +27,7 @@ class CbScraperService
       availability = pr.search(".availability-state").text.strip
 
       product = Product.find_or_initialize_by(store_id: store_id)
+      product.store_id = store_id if store_id.present?
       product.name = name if name.present?
       product.image = image if image.present?
       product.link = link if link.present?
@@ -29,8 +36,10 @@ class CbScraperService
       product.review_amount = review_amount if review_amount.present?
       product.available = available if available.present?
       product.availability = availability if availability.present?
+      product.provider_id = 1
 
-      product.save if product.new_record? || product.changed?
+      records << product
     end
+    records
   end
 end
