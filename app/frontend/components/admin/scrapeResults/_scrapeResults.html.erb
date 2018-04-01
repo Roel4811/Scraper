@@ -1,17 +1,40 @@
-<table class="">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>in DB</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @records.each do |record| %>
-      <tr class="">
-        <td><%= record['name'] %></td>
-        <td><%= Product.find_by(store_id: record['store_id']) ? "<i class='fa fa-check'></i>".html_safe : "<i class='fa fa-minus'></i>".html_safe %></td>
+<%= form_tag(admin_create_products_path, method: :post) do %>
+  <table class="">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Store ID</th>
+        <th>in DB</th>
+        <th>Save?</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @records.each do |record| %>
+        <%= fields_for 'products[]', record do |r| %>
+          <tr class="">
+            <td><%= record['name'] %></td>
+            <td><%= record['store_id'] %></td>
+            <% if Product.find_by(store_id: record['store_id']) %>
+              <td><i class='fa fa-check'></i></td>
+              <td></td>
+            <% else %>
+              <td><i class='fa fa-minus'></i></td>
+              <td><%= check_box_tag 'save_to_db_ids[]', record['store_id'], {checked: true} %></td>
+            <% end %>
+            <%= r.hidden_field :name %>
+            <%= r.hidden_field :store_id %>
+            <%= r.hidden_field :price %>
+            <%= r.hidden_field :image %>
+            <%= r.hidden_field :link %>
+            <%= r.hidden_field :rating %>
+            <%= r.hidden_field :review_amount %>
+            <%= r.hidden_field :available %>
+            <%= r.hidden_field :availability %>
+            <%= r.hidden_field :provider_id %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <%= submit_tag("Save to DB", class: "btn btn-success") %>
+<% end %>
