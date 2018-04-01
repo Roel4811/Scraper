@@ -1,0 +1,6 @@
+<%= admin_c("page") do %>
+  <%= admin_c("navbar") %>
+  <div class="products-card">
+    <%= admin_c("recordTable", products: @products) %>
+  </div>
+<% end %>
