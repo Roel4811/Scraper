@@ -1,0 +1,32 @@
+.products-card {
+  margin: 40px;
+  padding: 25px;
+  background-color: white;
+  box-shadow: #d0d0d0 0 0 10px 0px;
+  min-height: 400px;
+}
+
+table {
+  width: 100%;
+  tr {
+    height: 35px;
+  }
+  th {
+    padding: 5px;
+    text-transform: uppercase;
+    &:first-child {
+      padding-left: 40px;
+    }
+  }
+  td {
+    padding: 5px;
+    &:first-child {
+      padding-left: 40px;
+    }
+  }
+  tbody {
+    tr:nth-child(odd) {
+      background-color: $lightblue;
+    }
+  }
+}

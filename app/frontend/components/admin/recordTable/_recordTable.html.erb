@@ -1,0 +1,25 @@
+<table class="">
+  <thead>
+    <tr>
+      <th><%= Product.human_attribute_name(:id) %></th>
+      <th><%= Product.human_attribute_name(:name) %></th>
+      <th><%= Product.human_attribute_name(:price) %></th>
+      <th><%= Product.human_attribute_name(:review_amount) %></th>
+      <th><%= Product.human_attribute_name(:store_id) %></th>
+      <th><%= Product.human_attribute_name(:provider) %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% products.each do |product| %>
+      <tr class="">
+        <td><%= product.id %></td>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <td><%= product.review_amount %></td>
+        <td><%= product.store_id %></td>
+        <td><%= product.provider_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
