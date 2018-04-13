@@ -1,3 +1,8 @@
 <div class="side-menu">
-
+  <%= form_tag(search_products_path, method: 'get', remote: true) do %>
+    <label>Aanbieder</label>
+    <%= select_tag(:provider, options_for_select(providers.map(&:name), 1), onchange: "this.form.submit();", class: "custom-select") %>
+    <label>Merk</label>
+    <%= select_tag(:brand, options_for_select(brands, 1), onchange: "this.form.submit();", class: "custom-select") %>
+  <% end %>
 </div>
