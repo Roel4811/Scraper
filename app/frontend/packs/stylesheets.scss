@@ -2,3 +2,10 @@ $fa-font-path: "~font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome';
 
 @import "../components/page/page";
+@import "../components/navbar/navbar";
+@import "../components/side-menu/side-menu";
+@import "../components/main-col/main-col";
+
+.main-content {
+  padding-top: 56px;
+}
