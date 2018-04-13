@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "pages#home"
+  get "/search-products", to: "pages#search_products"
 
   namespace :admin do
     root to: "pages#home"
