@@ -1,3 +1,9 @@
 <div class="main-col">
-  
+  <% products.each do |product| %>
+    <div class="product-card">
+      <div class="product-image">
+        <%= image_tag(product.image) %>
+      </div>
+    </div>
+  <% end %>
 </div>
