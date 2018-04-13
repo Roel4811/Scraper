@@ -12,6 +12,6 @@ class Admin::ProductsController < Admin::ApplicationController
   private
 
   def product_params(params)
-    params.permit(:name, :store_id, :image, :link, :price, :rating, :review_amount, :available, :availability, :provider_id)
+    params.permit(:name, :store_id, :brand, :image, :link, :price, :rating, :review_amount, :available, :availability, :provider_id, :issue)
   end
 end
