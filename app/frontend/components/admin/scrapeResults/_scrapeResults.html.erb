@@ -10,7 +10,7 @@
     </thead>
     <tbody>
       <% @records.each do |record| %>
-        <%= fields_for 'products[]', record do |r| %>
+        <%#= product_form.fields_for :products, record, include_id: false do |r| %>
           <tr class="">
             <td><%= record['name'] %></td>
             <td><%= record['store_id'] %></td>
@@ -21,18 +21,20 @@
               <td><i class='fa fa-minus'></i></td>
               <td><%= check_box_tag 'save_to_db_ids[]', record['store_id'], {checked: true} %></td>
             <% end %>
-            <%= r.hidden_field :name %>
-            <%= r.hidden_field :store_id %>
-            <%= r.hidden_field :price %>
-            <%= r.hidden_field :image %>
-            <%= r.hidden_field :link %>
-            <%= r.hidden_field :rating %>
-            <%= r.hidden_field :review_amount %>
-            <%= r.hidden_field :available %>
-            <%= r.hidden_field :availability %>
-            <%= r.hidden_field :provider_id %>
+            <%= hidden_field_tag 'products[][name]', record['name'] %>
+            <%= hidden_field_tag 'products[][store_id]', record['store_id'] %>
+            <%= hidden_field_tag 'products[][brand]', record['brand'] %>
+            <%= hidden_field_tag 'products[][price]', record['price'] %>
+            <%= hidden_field_tag 'products[][image]', record['image'] %>
+            <%= hidden_field_tag 'products[][link]', record['link'] %>
+            <%= hidden_field_tag 'products[][rating]', record['rating'] %>
+            <%= hidden_field_tag 'products[][review_amount]', record['review_amount'] %>
+            <%= hidden_field_tag 'products[][available]', record['available'] %>
+            <%= hidden_field_tag 'products[][availability]', record['availability'] %>
+            <%= hidden_field_tag 'products[][provider_id]', record['provider_id'] %>
+            <%= hidden_field_tag 'products[][issue]', record['issue'] %>
           </tr>
-        <% end %>
+        <%# end %>
       <% end %>
     </tbody>
   </table>
