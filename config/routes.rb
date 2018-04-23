@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  root to: "pages#home"
-  get "/search-products", to: "pages#search_products"
+  root to: "products#index"
+  get "/search-products", to: "products#search_products"
+
+  resources :products, only: [:index, :show]
 
   namespace :admin do
     root to: "pages#home"
