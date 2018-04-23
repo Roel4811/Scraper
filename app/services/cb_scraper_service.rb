@@ -19,6 +19,7 @@ class CbScraperService
       begin
         name = pr.search(".product__title").text.strip
         store_id = pr.css('a')[0]['data-productid'].to_i
+        brand = name.split.first
         image = pr.css("img").first.attr("src").strip
         link = "/product/#{store_id}"
         price = pr.search(".product__sales-price").text.strip.gsub(",",".").to_f
@@ -36,6 +37,7 @@ class CbScraperService
         product = Product.find_or_initialize_by(store_id: store_id)
         product.store_id = store_id if store_id.present?
         product.name = name if name.present?
+        product.brand = brand if brand.present?
         product.image = image if image.present?
         product.link = link if link.present?
         product.price = price if price.present?

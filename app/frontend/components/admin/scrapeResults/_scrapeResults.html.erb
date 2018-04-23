@@ -3,6 +3,7 @@
     <thead>
       <tr>
         <th>Name</th>
+        <th>Brand</th>
         <th>Store ID</th>
         <th>in DB</th>
         <th>Save?</th>
@@ -13,6 +14,7 @@
         <%#= product_form.fields_for :products, record, include_id: false do |r| %>
           <tr class="">
             <td><%= record['name'] %></td>
+            <td><%= record['brand'] %></td>
             <td><%= record['store_id'] %></td>
             <% if Product.find_by(store_id: record['store_id']) %>
               <td><i class='fa fa-check'></i></td>
