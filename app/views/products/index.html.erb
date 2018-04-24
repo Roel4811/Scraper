@@ -1,0 +1,13 @@
+<%= c("page") do %>
+  <%= c("navbar") %>
+  <div class="container main-content">
+    <div class="row">
+      <div class="col col-md-3">
+        <%= c("side-menu", providers: @providers, brands: @brands) %>
+      </div>
+      <div class="col">
+        <%= c("main-col", products: @products) %>
+      </div>
+    </div>
+  </div>
+<% end %>
