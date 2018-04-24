@@ -1,0 +1,17 @@
+<% if products.exists? %>
+  <% products.each do |product| %>
+    <%= link_to product_path(product) do %>
+      <div class="product-card">
+        <div class="product-image">
+          <%= image_tag(product.image) %>
+        </div>
+        <div class="product-text">
+          <p class="product-name"><%= product.name %></p>
+          <p class="product-price"><%= product.price %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>Er zijn geen resultaten voor deze zoekcombinatie</p>
+<% end %>
