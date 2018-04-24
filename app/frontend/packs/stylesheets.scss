@@ -5,7 +5,8 @@ $fa-font-path: "~font-awesome/fonts";
 @import "../components/navbar/navbar";
 @import "../components/side-menu/side-menu";
 @import "../components/main-col/main-col";
+@import "../components/searchResults/searchResults";
 
 .main-content {
-  padding-top: 80px;
+  padding-top: 56px;
 }
