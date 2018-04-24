@@ -9,8 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="<%= controller_name %> <%= action_name %>">
+    <div id="main-content" class="main-content">
+      <%#= flash_msgs %>
+      <%= yield %>
+    </div>
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>
