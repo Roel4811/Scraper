@@ -1,0 +1,15 @@
+<svg width="2169px" height="913px" viewBox="0 0 2169 913" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="9.01799797%" y1="52.0523998%" x2="108.347012%" y2="77.9116506%" id="linearGradient-1">
+            <stop stop-color="#3023AE" offset="0%"></stop>
+            <stop stop-color="#EC428D" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="banner-background" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-17.000000, 0.000000)" fill="url(#linearGradient-1)">
+            <path d="M1499.50285,-2548.30041 L3062.00285,-1646.05331 C3077.4713,-1637.12124 3087,-1620.61579 3087,-1602.75369 L3087,201.753689 C3087,219.615792 3077.4713,236.121241 3062.00285,245.053312 L1499.50285,1147.30041 C1484.03135,1156.23425 1464.96865,1156.23425 1449.49715,1147.30041 L28.4201545,326.716351 L-113.002854,245.053312 C-128.471299,236.121241 -138,219.615792 -138,201.753689 L-138,-1602.75369 C-138,-1620.61579 -128.471299,-1637.12124 -113.002854,-1646.05331 L1449.49715,-2548.30041 C1464.96865,-2557.23425 1484.03135,-2557.23425 1499.50285,-2548.30041 Z" id="Polygon" transform="translate(1474.500000, -700.500000) rotate(-30.000000) translate(-1474.500000, 700.500000) "></path>
+        </g>
+    </g>
+</svg>
