@@ -1,7 +1,31 @@
 .banner {
-  height: 400px;
+  position: relative;
+  height: 420px;
   width: 100%;
-  background: linear-gradient(to right, #3023AE, #EC428D);
-  -webkit-clip-path: ellipse(50% 0%, 100% -2%, 106% 102%, 65% 100%, 47% 51%);
-  clip-path: ellipse(50% 0%, 100% -2%, 106% 102%, 65% 100%, 47% 51%);
+  background: url('.././images/purple_background.svg') no-repeat top right;
+  background-size: contain;
+  // background: linear-gradient(to right, #3023AE, #EC428D);
+  // -webkit-clip-path: ellipse(50% 0%, 100% -2%, 106% 102%, 65% 100%, 47% 51%);
+  // clip-path: ellipse(50% 0%, 100% -2%, 106% 102%, 65% 100%, 47% 51%);
+  h1 {
+    position: absolute;
+    bottom: 0;
+    font-family: Helvetica;
+  }
+  .content-box {
+    // margin-left: 50px;
+    .logo-with-text {
+      margin-top: 30px;
+    }
+    p {
+      margin-top: 20px;
+      font-size: 1.7em;
+      max-width: 250px
+    }
+  }
+  .banner-image {
+    position: absolute;
+    bottom: 0;
+    right: 20%;
+  }
 }
