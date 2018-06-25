@@ -4,5 +4,7 @@
     <%= select_tag(:provider, options_for_select(providers.map(&:name), 1), class: "custom-select") %>
     <label>Merk</label>
     <%= select_tag(:brand, options_for_select(brands, 1), class: "custom-select") %>
+    <label>Prijs</label>
+    <%= select_tag(:price, options_for_select(price_ranges, 1), class: "custom-select") %>
   <% end %>
 </div>
