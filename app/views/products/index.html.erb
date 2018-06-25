@@ -4,7 +4,7 @@
   <div class="container main-content">
     <div class="row">
       <div class="col col-md-3">
-        <%= c("side-menu", providers: @providers, brands: @brands) %>
+        <%= c("side-menu", providers: @providers, brands: @brands, price_ranges: Product::PRICE_RANGES) %>
       </div>
       <div class="col">
         <%= c("main-col", products: @products) %>
