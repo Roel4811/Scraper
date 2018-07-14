@@ -26,4 +26,32 @@ class Product < ActiveRecord::Base
   def provider_name
     self.provider.name if self.provider
   end
+
+  def self.search_products(query)
+    self.search({
+      query: {
+        bool: {
+          must: [
+          {
+            multi_match: {
+              query: query,
+              fields: [:name, :availability, :brand]
+            }
+          },
+          {
+            match: {
+              available: true
+            }
+          }]
+        }
+      },
+      highlight: {
+        pre_tags: ['<em><strong>'],
+        post_tags: ['</em></strong>'],
+        fields: {
+          name: {}
+        }
+      }
+    })
+  end
 end
