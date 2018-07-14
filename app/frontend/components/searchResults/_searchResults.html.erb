@@ -1,4 +1,4 @@
-<% if products.exists? %>
+<% if products&.any? %>
   <% products.each do |product| %>
     <%= link_to product_path(product) do %>
       <div class="product-card">
@@ -6,7 +6,11 @@
           <%= image_tag(product.image) %>
         </div>
         <div class="product-text">
-          <p class="product-name"><%= product.name %></p>
+          <% if product&.highlight&.name %>
+            <% product.highlight.name.each do |snippet| %>
+              <p class="product-name"><%= snippet.html_safe %></p>
+            <% end %>
+          <% end %>
           <p class="product-price"><%= product.price %></p>
         </div>
       </div>
