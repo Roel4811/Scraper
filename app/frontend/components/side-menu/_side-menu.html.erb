@@ -1,10 +1,15 @@
 <div class="side-menu">
   <%= form_tag(search_products_path, method: 'get', remote: true, id: "search-form") do %>
+
     <label>Aanbieder</label>
     <%= select_tag(:provider, options_for_select(providers.map(&:name), 1), class: "custom-select") %>
     <label>Merk</label>
     <%= select_tag(:brand, options_for_select(brands, 1), class: "custom-select") %>
     <label>Prijs</label>
     <%= select_tag(:price, options_for_select(price_ranges, 1), class: "custom-select") %>
+    <label>Zoek op naam</label>
+    <%= text_field_tag(:query) %>
+    <%= submit_tag('Zoek') %>
   <% end %>
+
 </div>
