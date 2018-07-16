@@ -54,4 +54,15 @@ class Product < ActiveRecord::Base
       }
     })
   end
+
+  def as_indexed_json(options = {})
+    self.as_json(
+      only: [:id, :name, :price, :image, :link, :rating, :review_amount, :store_id, :available, :availability, :provider_id, :brand, :issue],
+      include: {
+        provider: {
+          only: :name
+        }
+      }
+    )
+  end
 end
