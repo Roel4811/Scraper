@@ -1,6 +1,8 @@
 $fa-font-path: "~font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome';
 @import url('https://fonts.googleapis.com/css?family=Sriracha');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:700');
+@import url('https://fonts.googleapis.com/css?family=Cousine');
 
 @import "../components/page/page";
 @import "../components/navbar/navbar";
@@ -10,6 +12,6 @@ $fa-font-path: "~font-awesome/fonts";
 @import "../components/searchResults/searchResults";
 
 .main-content {
-  padding-top: 56px;
+  // padding-top: 56px;
   font-size: 10px;
 }
