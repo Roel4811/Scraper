@@ -10,7 +10,7 @@ class Product < ActiveRecord::Base
       indexes :link, type: :text
       indexes :rating, type: :text
       indexes :review_amount, type: :integer
-      indexes :store_id, type: :integer
+      indexes :store_id, type: :keyword
       indexes :available, type: :boolean
       indexes :availability, type: :text, analyzer: :english
       indexes :provider_id, type: :integer
@@ -27,8 +27,14 @@ class Product < ActiveRecord::Base
     self.provider.name if self.provider
   end
 
+  def self.present_brands
+    Product.distinct.pluck(:brand).select(&:present?)
+  end
+
   def self.search_products(query)
     self.search({
+      from: 0,
+      size: 40,
       query: {
         bool: {
           must: [
