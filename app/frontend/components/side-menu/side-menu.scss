@@ -1,3 +1,8 @@
+@import '~pretty-checkbox/src/pretty-checkbox.scss';
+
+$pretty--color-default: #bdc3c7;
+$pretty--color-primary: #3826ad;
+
 .side-menu {
   height: 600px;
   border: 1px solid rgb(209, 209, 209);
@@ -8,5 +13,18 @@
     li {
       padding-left: 0;
     }
+  }
+  .checkbox-block {
+    margin: 7px 0;
+  }
+  label {
+    display: block;
+    font-weight: 600;
+    .checkbox-brand {
+      font-weight: 300;
+    }
+  }
+  .custom-select {
+    border: 1px groove #7b32a0;
   }
 }
