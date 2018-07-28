@@ -1,8 +1,15 @@
 $fa-font-path: "~font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome';
+@import '~pretty-checkbox/src/pretty-checkbox.scss';
+
+$pretty--color-default: #bdc3c7;
+$pretty--color-primary: #3826ad;
+
 @import url('https://fonts.googleapis.com/css?family=Sriracha');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:700');
 @import url('https://fonts.googleapis.com/css?family=Cousine');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,800');
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,600,800');
 
 @import "../components/page/page";
 @import "../components/navbar/navbar";
@@ -14,4 +21,9 @@ $fa-font-path: "~font-awesome/fonts";
 .main-content {
   // padding-top: 56px;
   font-size: 10px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.page-body {
+  margin-top: 50px;
 }
