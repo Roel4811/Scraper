@@ -1,15 +1,39 @@
 <div class="side-menu">
-  <%= form_tag(search_products_path, method: 'get', remote: true, id: "search-form") do %>
+  <%#= form_tag(fetch_products_path, method: 'get', remote: true, id: "search-form") do %>
 
-    <label>Aanbieder</label>
-    <%= select_tag(:provider, options_for_select(providers.map(&:name), 1), class: "custom-select") %>
-    <label>Merk</label>
-    <%= select_tag(:brand, options_for_select(brands, 1), class: "custom-select") %>
-    <label>Prijs</label>
-    <%= select_tag(:price, options_for_select(price_ranges, 1), class: "custom-select") %>
-    <label>Zoek op naam</label>
-    <%= text_field_tag(:query) %>
-    <%= submit_tag('Zoek') %>
-  <% end %>
+    <%= label_tag(:provider, "Aanbieder") %>
+    <%#= select_tag "timezone", options_from_collection_for_select(
+      ActiveSupport::TimeZone.all.
+        map { |tz| tz.tzinfo }.
+        sort_by { |tzinfo| tzinfo.name },
+      :name, :name),
+      class: 'select2' %>
+    <%#= select_tag(:provider, options_for_select(providers.map(&:name), 1), class: "select2") %>
+    <%= label_tag(:brand, "Merk", class: "mt-3") %>
+    <%= form_tag(fetch_products_path, method: :get, remote: true, id: "search-form") do %>
+      <% brands.each do |brand| %>
+        <div class="pretty p-default p-curve d-block checkbox-block">
+          <%= check_box_tag("brands[]", brand) %>
+          <div class="state p-primary">
+            <%= label_tag(brand, brand) %> <%= "(#{Product.search_products(brand).count})" %>
+          </div>
+            <%#= label_tag(:brand, brand, class: "checkbox inline")%><%#= brand %>
+        </div>
+      <% end %>
 
+
+      <%= label_tag(:price, "Prijs", class: "mt-3") %>
+      <%#= select_tag(:price, options_for_select(price_ranges, 1), class: "select2") %>
+      <div class="form-group row">
+        <div class="col-4">
+          <%= text_field_tag(:min_price, value = nil, class: "form-control") %>
+        </div>
+        <span class="d-flex align-items-center">tot</span>
+        <div class="col-4">
+          <%= text_field_tag(:max_price, value = nil, class: "form-control") %>
+        </div>
+      </div>
+
+      <%= submit_tag('Zoek') %>
+    <% end %>
 </div>
