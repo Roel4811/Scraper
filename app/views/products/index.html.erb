@@ -1,7 +1,7 @@
 <%= c("page") do %>
-  <%#= c("navbar") %>
+  <%= c("navbar") %>
   <%= c("banner") %>
-  <div class="container main-content">
+  <div class="container page-body">
     <div class="row">
       <div class="col col-md-3">
         <%= c("side-menu", providers: @providers, brands: @brands, price_ranges: Product::PRICE_RANGES) %>
