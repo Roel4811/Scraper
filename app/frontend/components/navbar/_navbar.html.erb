@@ -1,17 +1,22 @@
 <nav id="nav" class="navbar fixed-top navbar-expand-lg navbar-light">
   <div class="container">
-    <%= link_to("Powerware", root_path, class: "navbar-brand") %>
+    <%#= link_to("Hardwarehub", root_path, class: "navbar-brand") %>
+    <%= link_to(image_tag(asset_pack_path('images/telescope.svg'), class: "logo-with-text"), root_path, class: "navbar-brand", id: "navbar-brand") %>
     <%#=  link_to(image_tag(asset_pack_path('packs/images/telescope.svg')), root_path, class: "navbar-brand") %>
     <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <%#= link_to "Home", root_path, class: "nav-item nav-link " + current_class?(admin_root_path) %>
-        <%#= link_to "Database", root_path, class: "nav-item nav-link " + current_class?(admin_database_path) %>
-        <%#= link_to "Pricing", root_path, class: "nav-item nav-link " + current_class?(root_path) %>
-        <%#= link_to "Disabled", root_path, class: "nav-item nav-link " + current_class?(root_path) %>
-        <span class="nav-item nav-link">Vergelijk hardwareprijzen van de grootste online aanbieders</span>
+        <%#= form_tag(fetch_products_path, method: 'get', remote: true, id: "search-form") do %>
+          <%#= text_field_tag(:query) %>
+          <%#= submit_tag('Zoek') %>
+        <%# end %>
+        <%= link_to "Over", root_path, class: "nav-item nav-link" %>
+        <%= link_to "Artikelen", root_path, class: "nav-item nav-link" %>
+        <%= link_to "Productgroep", root_path, class: "nav-item nav-link" %>
+        <%= link_to "Contact", root_path, class: "nav-item nav-link" %>
+        <!-- <span class="nav-item nav-link">Vergelijk hardwareprijzen van de grootste online aanbieders</span> -->
       </div>
     </div>
   </div>
