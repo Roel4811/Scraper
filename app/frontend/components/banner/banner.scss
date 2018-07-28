@@ -1,31 +1,43 @@
-.banner {
-  position: relative;
+.banner-content {
   height: 420px;
   width: 100%;
-  background: url('.././images/purple_background.svg') no-repeat top right;
+  background: linear-gradient(to right,rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
+              url('.././images/background_with_powerbank.svg') no-repeat top right;
   background-size: contain;
   // background: linear-gradient(to right, #3023AE, #EC428D);
   // -webkit-clip-path: ellipse(50% 0%, 100% -2%, 106% 102%, 65% 100%, 47% 51%);
   // clip-path: ellipse(50% 0%, 100% -2%, 106% 102%, 65% 100%, 47% 51%);
-  h1 {
-    position: absolute;
-    bottom: 0;
-    font-family: Helvetica;
-  }
-  .content-box {
-    // margin-left: 50px;
-    .logo-with-text {
-      margin-top: 30px;
+  .banner-flex {
+    display: flex;
+    flex-direction: column;
+    height: 420px;
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      margin-bottom: 0;
+      line-height: 31px;
     }
-    p {
-      margin-top: 20px;
-      font-size: 1.7em;
-      max-width: 250px
+    .content-box {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      .logo-with-text {
+        margin-top: 30px;
+        vertical-align: bottom;
+      }
+      p {
+        margin-top: 20px;
+        font-size: 1.7em;
+        font-family: 'Cousine', monospace;
+        max-width: 300px
+      }
     }
-  }
-  .banner-image {
-    position: absolute;
-    bottom: 0;
-    right: 20%;
+    .partner-logo-box {
+      flex-grow: 1;
+      img.partner-logo {
+        width: 65px;
+        margin-right: 50px;
+      }
+    }
   }
 }
