@@ -2,8 +2,8 @@ $fa-font-path: "~font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome';
 @import '~pretty-checkbox/src/pretty-checkbox.scss';
 
-$pretty--color-default: #bdc3c7;
-$pretty--color-primary: #3826ad;
+$pretty--color-default: #3830ad;
+$pretty--color-primary: #3830ad;
 
 @import url('https://fonts.googleapis.com/css?family=Sriracha');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:700');
@@ -26,4 +26,25 @@ $pretty--color-primary: #3826ad;
 
 .page-body {
   margin-top: 50px;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+  border-color: rgba(56, 48, 173, 1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(56, 48, 173, 1);
+  // outline: 0 none;
 }
