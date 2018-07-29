@@ -1,5 +1,15 @@
 class Search < ApplicationRecord
 
+  before_save :remove_brackets, :remove_commas
+
+  def remove_brackets
+    self.brands.gsub!(/[\[\]\"]/, "") if attribute_present?("brands")
+  end
+
+  def remove_commas
+    self.brands.gsub!(/\,/,"") if attribute_present?("brands")
+  end
+
   def products
     @products ||= find_products
   end
@@ -12,38 +22,11 @@ class Search < ApplicationRecord
     # products = products.where(category_id: category_id) if category_id.present?
     # products = products.where("price >= ?", min_price) if min_price.present?
     # products = products.where("price <= ?", max_price) if max_price.present?
-    products = products.search_products(brands.join(" ")) if brands.present?
+    # binding.pry
+    products = products.whole_search(brands, min_price, max_price)
+    # products = products.search_on_keywords(brands).records if brands.present?
+    # products = products.search_on_price_range(min_price, max_price) if (min_price.present? && max_price.present?)
     products
-  end
-
-  def self.search_products(query)
-    Product.search({
-      from: 0,
-      size: 40,
-      query: {
-        bool: {
-          must: [
-          {
-            multi_match: {
-              query: query,
-              fields: [:name, :availability, :brand]
-            }
-          },
-          {
-            match: {
-              available: true
-            }
-          }]
-        }
-      },
-      highlight: {
-        pre_tags: ['<em><strong>'],
-        post_tags: ['</em></strong>'],
-        fields: {
-          name: {}
-        }
-      }
-    })
   end
 
 end
