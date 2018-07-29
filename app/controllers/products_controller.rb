@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
     @providers = Provider.all
     @products = Product.search_products("*")
     @brands = Product.present_brands
+    @search = Search.new
   end
 
   def show
