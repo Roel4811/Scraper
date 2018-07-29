@@ -5,12 +5,16 @@ nav.navbar {
   transition: background-color 0.5s ease, height 0.5s ease;
   a.navbar-brand {
     transition: opacity 0.5s ease, height 0.5s ease;
-    opacity: 1;
+    opacity: 0;
     &.add-opacity {
-      opacity: 0;
+      opacity: 1;
     }
     .logo-with-text {
       width: 35px;
+    }
+    .logo-text {
+      width: 100px;
+      height: 25px;
     }
   }
   .custom-toggler.navbar-toggler {
@@ -20,13 +24,18 @@ nav.navbar {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
   }
   .navbar-nav {
+    display: flex;
+    align-items: center;
     width: auto;
     margin-left: auto;
     font-size: 1.6em;
+    form {
+      width: 260px;
+    }
     .nav-item {
-      margin-right: 3.5rem;
+      margin-right: 2.5rem;
       color: white;
-      transition: color 0.5s ease, height 0.5s ease;
+      transition: color 0.5s ease;
       &:last-child {
         margin-left: auto;
       }
@@ -39,7 +48,6 @@ nav.navbar {
     }
   }
   &.scrolled {
-    height: 50px;
     background-color: rgba(255, 255, 255, 0.9);
   }
 }

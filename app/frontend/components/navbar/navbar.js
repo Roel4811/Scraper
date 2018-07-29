@@ -2,15 +2,18 @@ window.onscroll = function() {
   var nav = document.getElementById('nav');
   var navLinks = document.querySelectorAll('.nav-item');
   var navBrand = document.getElementById('navbar-brand');
+  var navBrandText = document.getElementById('navbar-brand-text');
   // console.log(window.pageYOffset);
   if ( window.pageYOffset > 150 ) {
     nav.classList.add("scrolled");
     addBlack(navLinks);
-    removeOpacity(navBrand);
+    addOpacity(navBrand);
+    addOpacity(navBrandText)
   } else {
     nav.classList.remove("scrolled");
     removeBlack(navLinks);
-    addOpacity(navBrand);
+    removeOpacity(navBrand);
+    removeOpacity(navBrandText);
   }
 }
 

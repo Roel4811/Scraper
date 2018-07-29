@@ -2,18 +2,18 @@
   <div class="container">
     <%#= link_to("Hardwarehub", root_path, class: "navbar-brand") %>
     <%= link_to(image_tag(asset_pack_path('images/telescope.svg'), class: "logo-with-text"), root_path, class: "navbar-brand", id: "navbar-brand") %>
+    <%= link_to(image_tag(asset_pack_path('images/logo_text.svg'), class: "logo-text"), root_path, class: "navbar-brand", id: "navbar-brand-text") %>
     <%#=  link_to(image_tag(asset_pack_path('packs/images/telescope.svg')), root_path, class: "navbar-brand") %>
     <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <%#= form_tag(fetch_products_path, method: 'get', remote: true, id: "search-form") do %>
-          <%#= text_field_tag(:query) %>
+        <%= form_for(@search, remote: true, html: {class: "nav-item", id: "search-form" }) do |f| %>
+          <%= f.text_field(:keywords, class: "form-control") %>
           <%#= submit_tag('Zoek') %>
-        <%# end %>
+        <% end %>
         <%= link_to "Over", root_path, class: "nav-item nav-link" %>
-        <%= link_to "Artikelen", root_path, class: "nav-item nav-link" %>
         <%= link_to "Productgroep", root_path, class: "nav-item nav-link" %>
         <%= link_to "Contact", root_path, class: "nav-item nav-link" %>
         <!-- <span class="nav-item nav-link">Vergelijk hardwareprijzen van de grootste online aanbieders</span> -->
