@@ -1,8 +1,12 @@
+section.banner {
+  background: linear-gradient(to right,rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
+              url('.././images/background_with_powerbank.svg') no-repeat top right;
+  background-size: contain;
+}
+
 .banner-content {
   height: 420px;
   width: 100%;
-  background: linear-gradient(to right,rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
-              url('.././images/background_with_powerbank.svg') no-repeat top right;
   background-size: contain;
   // background: linear-gradient(to right, #3023AE, #EC428D);
   // -webkit-clip-path: ellipse(50% 0%, 100% -2%, 106% 102%, 65% 100%, 47% 51%);
