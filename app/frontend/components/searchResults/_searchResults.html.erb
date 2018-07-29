@@ -6,10 +6,12 @@
           <%= image_tag(product.image) %>
         </div>
         <div class="product-text">
-          <% if product&.highlight&.name %>
-            <% product.highlight.name.each do |snippet| %>
+          <% if product.try(:highlight).try(:name) %>
+            <% product.try(:highlight).try(:name).each do |snippet| %>
               <p class="product-name"><%= snippet.html_safe %></p>
             <% end %>
+          <% else %>
+            <p class="product-name"><%= product.name.html_safe %></p>
           <% end %>
           <p class="product-price">€<%= product.price %></p>
         </div>
