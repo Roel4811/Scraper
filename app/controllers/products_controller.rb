@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   def index
     @providers = Provider.all
-    @products = Product.search_products("*")
+    @products = Product.order(:name)
     @brands = Product.present_brands
     @search = Search.new
   end
