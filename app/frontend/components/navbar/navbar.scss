@@ -30,7 +30,16 @@ nav.navbar {
     margin-left: auto;
     font-size: 1.6em;
     form {
+      position: relative;
       width: 260px;
+      .search-submit {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        border: none;
+        width: 35px;
+        cursor: pointer;
+      }
     }
     .nav-item {
       margin-right: 2.5rem;

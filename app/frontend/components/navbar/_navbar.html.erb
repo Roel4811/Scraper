@@ -11,7 +11,9 @@
       <div class="navbar-nav">
         <%= form_for(@search, remote: true, html: {class: "nav-item", id: "search-form" }) do |f| %>
           <%= f.text_field(:keywords, class: "form-control") %>
-          <%#= submit_tag('Zoek') %>
+          <%= button_tag(class: "search-submit") do %>
+            <%= image_tag(asset_pack_path('images/search-solid.svg')) %>
+          <% end %>
         <% end %>
         <%= link_to "Over", root_path, class: "nav-item nav-link" %>
         <%= link_to "Productgroep", root_path, class: "nav-item nav-link" %>
