@@ -1,3 +1,6 @@
+import Typeahead from 'typeahead.js';
+import Bloodhound from 'typeahead.js';
+
 window.onscroll = function() {
   var nav = document.getElementById('nav');
   var navLinks = document.querySelectorAll('.nav-item');
@@ -36,3 +39,17 @@ function addOpacity(item) {
 function removeOpacity(item) {
   item.classList.remove("add-opacity");
 }
+
+(function() {
+   var searches = new Bloodhound({
+     datumTokenizer: Bloodhound.tokenizers.whitespace,
+     queryTokenizer: Bloodhound.tokenizers.whitespace,
+     remote: {
+       url: '/searches/autocomplete?query=%QUERY',
+       wildcard: '%QUERY'
+     }
+   });
+   $('#products_search').typeahead(null, {
+     source: searches
+   });
+})();

@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   get "/search-products", to: "products#fetch_products", as: "fetch_products"
 
   resources :products, only: [:index, :show]
-  resources :searches
+  resources :searches do
+    collection do
+      get :autocomplete
+    end
+  end
 
   namespace :admin do
     root to: "pages#home"
