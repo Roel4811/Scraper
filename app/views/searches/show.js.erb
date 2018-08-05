@@ -1,3 +1,20 @@
 document.getElementById("search-results").innerHTML = (
   "<%= j c('searchResults', products: @records) %>"
 );
+
+function loadSearchResultsJs() {
+  const productCards = document.querySelectorAll('.product-card');
+  console.log(productCards);
+
+  function transition() {
+    if (this.classList.contains('active')) {
+      this.classList.remove('active')
+    } else {
+      this.classList.add('active');
+    }
+  }
+
+  productCards.forEach(card => card.addEventListener('click', transition));
+}
+
+loadSearchResultsJs();
