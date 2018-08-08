@@ -1,6 +1,8 @@
 $fa-font-path: "~font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome';
 @import '~pretty-checkbox/src/pretty-checkbox.scss';
+@import '~bootstrap/scss/bootstrap.scss';
+
 
 $pretty--color-default: #3830ad;
 $pretty--color-primary: #3830ad;
@@ -11,12 +13,12 @@ $pretty--color-primary: #3830ad;
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,800');
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,600,800');
 
-@import "../components/page/page";
-@import "../components/navbar/navbar";
-@import "../components/banner/banner";
-@import "../components/side-menu/side-menu";
-@import "../components/main-col/main-col";
-@import "../components/searchResults/searchResults";
+@import "../../components/page/page";
+@import "../../components/navbar/navbar";
+@import "../../components/banner/banner";
+@import "../../components/side-menu/side-menu";
+@import "../../components/main-col/main-col";
+@import "../../components/searchResults/searchResults";
 
 .main-content {
   // padding-top: 56px;
@@ -25,6 +27,7 @@ $pretty--color-primary: #3830ad;
 }
 
 .page-body {
+
   margin-top: 50px;
 }
 
