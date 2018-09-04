@@ -1,4 +1,5 @@
 class SearchesController < ApplicationController
+
   def create
     @search = Search.create!(search_params)
 
@@ -8,6 +9,16 @@ class SearchesController < ApplicationController
   def show
     @search = Search.find(params[:id])
     @records = @search.products
+  end
+
+  def autocomplete
+    render json: Product.search(params[:query], {
+        fields: ["name"],
+        match: :word_middle,
+        limit: 10,
+        load: false,
+        misspellings: {below:5}
+      }).map(&:name)
   end
 
   private
