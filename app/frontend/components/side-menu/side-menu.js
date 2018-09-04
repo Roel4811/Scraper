@@ -1,5 +1,5 @@
-import Rails from 'rails-ujs';
-import "./side-menu.scss";
+// import Rails from 'rails-ujs';
+// import "./side-menu.scss";
 
 // import 'jquery-nice-select';
 
