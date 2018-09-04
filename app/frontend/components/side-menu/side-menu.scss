@@ -4,8 +4,8 @@ $pretty--color-default: #3830ad;
 $pretty--color-primary: #3830ad;
 
 .side-menu {
-  height: 600px;
-  border: 1px solid rgb(209, 209, 209);
+  height: auto;
+  // border: 1px solid rgb(209, 209, 209);
   padding: 10px;
   font-size: 1.6em;
   ul {
@@ -72,5 +72,11 @@ $pretty--color-primary: #3830ad;
       margin-top: 2px;
       padding: 6px 14px 4px;
     }
+  }
+}
+
+@media (max-width: 991px) {
+  .side-menu {
+    margin-top: 30px;
   }
 }

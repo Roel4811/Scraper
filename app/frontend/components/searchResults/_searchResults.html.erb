@@ -10,12 +10,15 @@
             <div class="product-text">
               <% if product.try(:highlight).try(:name) %>
                 <% product.try(:highlight).try(:name).each do |snippet| %>
-                  <p class="product-name"><%= snippet.html_safe %></p>
+                  <span class="product-name"><%= snippet.html_safe %></span>
                 <% end %>
               <% else %>
-                <p class="product-name"><%= product.name.html_safe %></p>
+                <span class="product-name"><%= product.name.html_safe %></span>
               <% end %>
-              <p class="product-price">€<%= product.price %></p>
+            </div>
+            <div class="front-footer">
+              <div class="product-price">€<%= product.price %></div>
+              <div class="flip-trigger">Meer</div>
             </div>
           </div>
           <div class="side back">

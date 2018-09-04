@@ -1,36 +1,40 @@
 <div class="side-menu">
   <%= form_for(@search, remote: true, id: "search-form") do |f| %>
-    <%= label_tag(:provider, "Aanbieder") %>
-    <% providers.each do |provider| %>
-      <div class="pretty p-default p-curve d-block checkbox-block">
-        <%= f.check_box(:providers, { multiple: true }, provider.name, false) %>
-        <div class="state p-default">
-          <%= f.label(:providers, provider.name) %> <%= "(#{Product.search_providers(provider.name).count})" %>
-        </div>
-      </div>
-    <% end %>
+    <div class="row">
+      <div class="col-sm-6 col-lg-12">
+        <%= label_tag(:provider, "Aanbieder") %>
+        <% providers.each do |provider| %>
+          <div class="pretty p-default p-curve d-block checkbox-block">
+            <%= f.check_box(:providers, { multiple: true }, provider.name, false) %>
+            <div class="state p-default">
+              <%= f.label(:providers, provider.name) %> <%= "(#{Product.search_providers(provider.name).count})" %>
+            </div>
+          </div>
+        <% end %>
 
-    <%= label_tag(:brand, "Merk", class: "mt-3") %>
-    <% brands.each do |brand| %>
-      <div class="pretty p-default p-curve d-block checkbox-block">
-        <%= f.check_box(:brands, { multiple: true }, brand, false) %>
-        <div class="state p-default">
-          <%= f.label(:brands, brand) %> <%= "(#{Product.search_brands(brand).count})" %>
+        <%= label_tag(:brand, "Merk", class: "mt-3") %>
+        <% brands.each do |brand| %>
+          <div class="pretty p-default p-curve d-block checkbox-block">
+            <%= f.check_box(:brands, { multiple: true }, brand, false) %>
+            <div class="state p-default">
+              <%= f.label(:brands, brand) %> <%= "(#{Product.search_brands(brand).count})" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-sm-6 col-lg-12">
+        <%= label_tag(:price, "Prijs", class: "mt-3") %>
+        <div class="form-group row">
+          <div class="col-4">
+            <%= f.text_field(:min_price, class: "form-control") %>
+          </div>
+          <span class="d-flex align-items-center">tot</span>
+          <div class="col-4">
+            <%= f.text_field(:max_price, class: "form-control") %>
+          </div>
         </div>
-      </div>
-    <% end %>
-
-    <%= label_tag(:price, "Prijs", class: "mt-3") %>
-    <div class="form-group row">
-      <div class="col-4">
-        <%= f.text_field(:min_price, class: "form-control") %>
-      </div>
-      <span class="d-flex align-items-center">tot</span>
-      <div class="col-4">
-        <%= f.text_field(:max_price, class: "form-control") %>
+        <%= submit_tag('Zoek', class: "submit-button") %>
       </div>
     </div>
-
-    <%= submit_tag('Zoek', class: "submit-button") %>
   <% end %>
 </div>
