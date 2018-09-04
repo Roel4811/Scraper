@@ -43,5 +43,15 @@ section.banner {
         margin-right: 50px;
       }
     }
+    .product-type {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      width: 200px;
+      padding: 5px 0;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      font-size: 2em;
+    }
   }
 }
