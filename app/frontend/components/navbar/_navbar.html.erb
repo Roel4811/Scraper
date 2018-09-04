@@ -1,16 +1,23 @@
 <nav id="nav" class="navbar fixed-top navbar-expand-lg navbar-light">
-  <div class="container">
+  <div class="container navbar-top">
     <%#= link_to("Hardwarehub", root_path, class: "navbar-brand") %>
-    <%= link_to(image_tag(asset_pack_path('images/telescope.svg'), class: "logo-with-text"), root_path, class: "navbar-brand", id: "navbar-brand") %>
-    <%= link_to(image_tag(asset_pack_path('images/logo_text.svg'), class: "logo-text"), root_path, class: "navbar-brand", id: "navbar-brand-text") %>
+    <%#= link_to(image_tag(asset_pack_path('images/telescope_with_text.svg'), class: "logo-with-text d-lg-none"), root_path, class: "navbar-brand", id: "navbar-brand") %>
+    <%= link_to(image_tag(asset_pack_path('images/telescope.svg'), class: "logo-without-text"), root_path, class: "navbar-brand d-none d-sm-block", id: "navbar-brand") %>
+    <%= link_to(image_tag(asset_pack_path('images/logo_text.svg'), class: "logo-text"), root_path, class: "navbar-brand d-none d-lg-block", id: "navbar-brand-text") %>
+    <%= form_for(@search, remote: true, html: {class: "nav-item d-lg-none", id: "search-form", autocomplete: "off" }) do |f| %>
+      <%= f.text_field(:keywords, class: "form-control", id: "products_search", autocomplete: :off, placeholder: "Zoek producten") %>
+      <%= button_tag(class: "search-submit") do %>
+        <%= image_tag(asset_pack_path('images/search-solid.svg')) %>
+      <% end %>
+    <% end %>
     <%#=  link_to(image_tag(asset_pack_path('packs/images/telescope.svg')), root_path, class: "navbar-brand") %>
     <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <%= form_for(@search, remote: true, html: {class: "nav-item", id: "search-form" }) do |f| %>
-          <%= f.text_field(:keywords, class: "form-control") %>
+        <%= form_for(@search, remote: true, html: {class: "nav-item d-none d-lg-block", id: "search-form", autocomplete: "off" }) do |f| %>
+          <%= f.text_field(:keywords, class: "form-control", id: "products_search", autocomplete: :off, placeholder: "Zoek producten") %>
           <%= button_tag(class: "search-submit") do %>
             <%= image_tag(asset_pack_path('images/search-solid.svg')) %>
           <% end %>

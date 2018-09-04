@@ -1,22 +1,24 @@
 import Typeahead from 'typeahead.js';
 import Bloodhound from 'typeahead.js';
 
-window.onscroll = function() {
-  var nav = document.getElementById('nav');
-  var navLinks = document.querySelectorAll('.nav-item');
-  var navBrand = document.getElementById('navbar-brand');
-  var navBrandText = document.getElementById('navbar-brand-text');
-  // console.log(window.pageYOffset);
-  if ( window.pageYOffset > 150 ) {
-    nav.classList.add("scrolled");
-    addBlack(navLinks);
-    addOpacity(navBrand);
-    addOpacity(navBrandText)
-  } else {
-    nav.classList.remove("scrolled");
-    removeBlack(navLinks);
-    removeOpacity(navBrand);
-    removeOpacity(navBrandText);
+if ($(window).width() > 991) {
+  window.onscroll = function() {
+    var nav = document.getElementById('nav');
+    var navLinks = document.querySelectorAll('.nav-item');
+    var navBrand = document.getElementById('navbar-brand');
+    var navBrandText = document.getElementById('navbar-brand-text');
+    // console.log(window.pageYOffset);
+    if ( window.pageYOffset > 150 ) {
+      nav.classList.add("scrolled");
+      addBlack(navLinks);
+      addOpacity(navBrand);
+      addOpacity(navBrandText)
+    } else {
+      nav.classList.remove("scrolled");
+      removeBlack(navLinks);
+      removeOpacity(navBrand);
+      removeOpacity(navBrandText);
+    }
   }
 }
 
