@@ -1,5 +1,9 @@
 class SearchesController < ApplicationController
 
+  def index
+    redirect_to root_path
+  end
+
   def create
     @search = Search.create!(search_params)
 
