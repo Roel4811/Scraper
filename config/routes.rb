@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   root to: "products#index"
+  get '/about', to: "application#about"
   get "/search-products", to: "products#fetch_products", as: "fetch_products"
 
   resources :products, only: [:index, :show]
+
   resources :searches do
     collection do
       get :autocomplete
