@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: "products#index"
   get '/about', to: "application#about"
+  get '/contact', to: "application#contact"
   get "/search-products", to: "products#fetch_products", as: "fetch_products"
 
   resources :products, only: [:index, :show]

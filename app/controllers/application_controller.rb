@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     @products = Product.order(:name)
     @brands = Product.present_brands
     @search = Search.new
-    
+
     respond_to do |format|
       format.html
       format.js {
@@ -16,4 +16,17 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def contact
+    @providers = Provider.all
+    @products = Product.order(:name)
+    @brands = Product.present_brands
+    @search = Search.new
+
+    respond_to do |format|
+      format.html
+      format.js {
+        render 'contact'
+      }
+    end
+  end
 end

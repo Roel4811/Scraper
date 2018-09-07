@@ -1,0 +1,6 @@
+document.getElementById("main-col-content").innerHTML = (
+  "<%= j c('contact') %>"
+);
+
+var stateObj = { page: "contact" };
+history.pushState(stateObj, "contact", "contact");
