@@ -15,6 +15,7 @@ class BolScraperService
 
     records = []
     products = html.search('#js_items_content li.product-item--column')
+
     products.each_with_index do |pr, i|
       begin
         name = pr.search('a.product-title').text.strip
@@ -27,13 +28,14 @@ class BolScraperService
         review_amount = pr.search('.rating-stars__rating-count').text.split('').map {|x| x[/\d+/]}.join.to_i
         available = html.xpath("//*[@id='js_items_content']/li[#{i+1}]/div[2]/div[3]/div/text()").text.blank? ? false : true
         availability = html.xpath("//*[@id='js_items_content']/li[#{i+1}]/div[2]/div[3]/div/text()").text.strip
-      rescue
-        product = Product.find_or_initialize_by(store_id: store_id)
-        product.provider_id = 2
-        product.issue = true
 
-        records << product
-      else
+      # rescue
+      #   product = Product.find_or_initialize_by(store_id: store_id)
+      #   product.provider_id = 2
+      #   product.issue = true
+      #
+      #   records << product
+      # else
         product = Product.find_or_initialize_by(store_id: store_id)
         product.store_id = store_id if store_id.present?
         product.name = name if name.present?
@@ -52,5 +54,6 @@ class BolScraperService
       end
     end
     records
+    binding.pry
   end
 end
