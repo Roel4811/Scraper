@@ -1,4 +1,5 @@
 class SearchesController < ApplicationController
+  before_action :find_search, only: [:show, :update]
 
   def index
     redirect_to root_path
@@ -11,8 +12,15 @@ class SearchesController < ApplicationController
   end
 
   def show
-    @search = Search.find(params[:id])
-    @records = @search.products
+    @products = Product.where(id: @search.products.map(&:id))
+    @providers = Provider.all
+    @brands = Product.present_brands
+  end
+
+  def update
+    @search.update(search_params)
+
+    redirect_to @search
   end
 
   def autocomplete
@@ -26,6 +34,10 @@ class SearchesController < ApplicationController
   end
 
   private
+
+  def find_search
+    @search = Search.find(params[:id])
+  end
 
   def search_params
     params.require(:search).permit(:keywords, :min_price, :max_price, brands: [], providers: [])
