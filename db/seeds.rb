@@ -7,3 +7,23 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 providers = Provider.create([{ name: 'coolblue' }, { name: 'bol' }])
+brands = Brand.create([
+  {
+    name: "Xtorm"
+  },
+  {
+    name: "Samsung"
+  },
+  {
+    name: "Anker"
+  },
+  {
+    name: "Duracell"
+  },
+  {
+    name: "Trust"
+  },
+  {
+    name: "Azuri"
+  }
+  ])

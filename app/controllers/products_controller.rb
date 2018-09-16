@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+
   def index
     @providers = Provider.all
     @products = Product.order(:name)
