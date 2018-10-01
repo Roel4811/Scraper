@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180730193611) do
+ActiveRecord::Schema.define(version: 20180928161032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "brands_searches", id: false, force: :cascade do |t|
+    t.integer "search_id"
+    t.integer "brand_id"
+    t.index ["brand_id"], name: "index_brands_searches_on_brand_id"
+    t.index ["search_id"], name: "index_brands_searches_on_search_id"
+  end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
@@ -26,12 +39,20 @@ ActiveRecord::Schema.define(version: 20180730193611) do
     t.boolean "available"
     t.string "availability"
     t.integer "provider_id"
-    t.string "brand"
     t.boolean "issue"
+    t.bigint "brand_id"
+    t.index ["brand_id"], name: "index_products_on_brand_id"
   end
 
   create_table "providers", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "providers_searches", id: false, force: :cascade do |t|
+    t.integer "search_id"
+    t.integer "provider_id"
+    t.index ["provider_id"], name: "index_providers_searches_on_provider_id"
+    t.index ["search_id"], name: "index_providers_searches_on_search_id"
   end
 
   create_table "searches", force: :cascade do |t|
@@ -40,9 +61,8 @@ ActiveRecord::Schema.define(version: 20180730193611) do
     t.decimal "max_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "brands"
-    t.string "providers"
   end
 
+  add_foreign_key "products", "brands"
   add_foreign_key "products", "providers"
 end
