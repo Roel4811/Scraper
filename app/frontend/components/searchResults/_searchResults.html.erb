@@ -1,69 +1,71 @@
-<% if products&.any? %>
-  <% products.each do |product| %>
-    <%#= link_to product_path(product) do %>
-      <div class="product-card-container inactive">
-        <div class="product-card">
-          <div class="side front">
-            <div class="product-image">
-              <%= image_tag(product.image) %>
-            </div>
-            <div class="product-text">
-              <% if product.try(:highlight).try(:name) %>
-                <% product.try(:highlight).try(:name).each do |snippet| %>
-                  <span class="product-name"><%= snippet.html_safe %></span>
-                <% end %>
-              <% else %>
-                <span class="product-name"><%= product.name.html_safe %></span>
-              <% end %>
-            </div>
-            <div class="front-footer">
-              <div class="product-price">€<%= product.price %></div>
-              <div class="flip-trigger">Meer</div>
-            </div>
-          </div>
-          <div class="side back">
-            <div class="back-product-name">
-              <h3><%= truncate(product.name, length: 33, escape: false) %></h3>
-            </div>
-            <div class="back-product-info table-responsive">
-              <table class="table table-borderless table-sm">
-                <tbody>
-                  <tr>
-                    <td>Merk</td>
-                    <td><%= product.brand %></td>
-                  </tr>
-                  <!-- <tr>
-                    <td>Prijs</td>
-                    <td><%= product.price %></td>
-                  </tr> -->
-                  <tr>
-                    <td>Rating</td>
-                    <td><%= product.rating %></td>
-                  </tr>
-                  <tr>
-                    <td>Aanbieder</td>
-                    <td><%= product.provider.name %></td>
-                  </tr>
-                  <tr>
-                    <td>Beschikbaarheid</td>
-                    <td><%= product.availability %></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="back-footer">
-              <div class="price">
-                €<%= product.price %>
+<div id="search-results" class="search-results">
+  <% if products&.any? %>
+    <% products.each do |product| %>
+      <%#= link_to product_path(product) do %>
+        <div class="product-card-container inactive">
+          <div class="product-card">
+            <div class="side front">
+              <div class="product-image">
+                <%= image_tag(product.image) %>
               </div>
-              <div class="cta">
-                <%= "Bekijk bij #{product.provider.name}" %>
+              <div class="product-text">
+                <% if product.try(:highlight).try(:name) %>
+                  <% product.try(:highlight).try(:name).each do |snippet| %>
+                    <span class="product-name"><%= snippet.html_safe %></span>
+                  <% end %>
+                <% else %>
+                  <span class="product-name"><%= product.name.html_safe %></span>
+                <% end %>
+              </div>
+              <div class="front-footer">
+                <div class="product-price">€<%= product.price %></div>
+                <div class="flip-trigger">Meer</div>
+              </div>
+            </div>
+            <div class="side back">
+              <div class="back-product-name">
+                <h3><%= truncate(product.name, length: 33, escape: false) %></h3>
+              </div>
+              <div class="back-product-info table-responsive">
+                <table class="table table-borderless table-sm">
+                  <tbody>
+                    <tr>
+                      <td>Merk</td>
+                      <td><%= product.brand_name %></td>
+                    </tr>
+                    <!-- <tr>
+                      <td>Prijs</td>
+                      <td><%= product.price %></td>
+                    </tr> -->
+                    <tr>
+                      <td>Rating</td>
+                      <td><%= product.rating %></td>
+                    </tr>
+                    <tr>
+                      <td>Aanbieder</td>
+                      <td><%= product.provider_name %></td>
+                    </tr>
+                    <tr>
+                      <td>Beschikbaarheid</td>
+                      <td><%= product.availability %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="back-footer">
+                <div class="price">
+                  €<%= product.price %>
+                </div>
+                <div class="cta">
+                  <%= "Bekijk bij #{product.provider.name}" %>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  <%# end %>
-<% else %>
-  <p>Er zijn geen resultaten voor deze zoekcombinatie</p>
-<% end %>
+      <% end %>
+    <%# end %>
+  <% else %>
+    <p class="no-results">Er zijn geen resultaten voor deze zoekcombinatie</p>
+  <% end %>
+</div>
