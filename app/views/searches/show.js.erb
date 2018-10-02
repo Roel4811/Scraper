@@ -1,10 +1,13 @@
-document.getElementById("search-results").innerHTML = (
-  "<%= j c('searchResults', products: @records) %>"
+document.getElementById("main-col-content").innerHTML = (
+  "<%= j c('searchResults', products: @products) %>"
+);
+
+document.getElementById("side-menu-wrapper").innerHTML = (
+  "<%= j c('side-menu', providers: @providers, brands: @brands) %>"
 );
 
 function loadSearchResultsJs() {
   const productCards = document.querySelectorAll('.product-card');
-  console.log(productCards);
 
   function transition() {
     if (this.classList.contains('active')) {
@@ -18,3 +21,6 @@ function loadSearchResultsJs() {
 }
 
 loadSearchResultsJs();
+
+var stateObj = { page: "zoeken" };
+history.pushState(stateObj, "zoeken", "zoeken");
