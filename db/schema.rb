@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180928161032) do
+ActiveRecord::Schema.define(version: 20181002124138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20180928161032) do
   create_table "brands_searches", id: false, force: :cascade do |t|
     t.integer "search_id"
     t.integer "brand_id"
-    t.index ["brand_id"], name: "index_brands_searches_on_brand_id"
+    t.index ["brand_id", "search_id"], name: "index_brands_searches_on_brand_id_and_search_id", unique: true
     t.index ["search_id"], name: "index_brands_searches_on_search_id"
   end
 
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20180928161032) do
   create_table "providers_searches", id: false, force: :cascade do |t|
     t.integer "search_id"
     t.integer "provider_id"
-    t.index ["provider_id"], name: "index_providers_searches_on_provider_id"
+    t.index ["provider_id", "search_id"], name: "index_providers_searches_on_provider_id_and_search_id", unique: true
     t.index ["search_id"], name: "index_providers_searches_on_search_id"
   end
 
