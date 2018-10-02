@@ -1,5 +1,8 @@
-import "./page.css";
+import "./page.scss";
+
 import "components/about/about";
 import "components/contact/contact";
-import "components/side-menu/side-menu";
 import "components/main-col/main-col";
+import "components/banner/banner";
+import "components/navbar/navbar";
+import "components/searchResults/searchResults";
