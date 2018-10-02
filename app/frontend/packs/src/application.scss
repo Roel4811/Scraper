@@ -13,11 +13,8 @@ $pretty--color-primary: #3830ad;
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,600,800');
 
 @import "../../components/page/page";
-@import "../../components/navbar/navbar";
-@import "../../components/banner/banner";
-@import "../../components/side-menu/side-menu";
-@import "../../components/main-col/main-col";
 @import "../../components/searchResults/searchResults";
+@import "../../components/side-menu/side-menu";
 
 .main-content {
   // padding-top: 56px;
