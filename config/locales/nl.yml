@@ -1,0 +1,7 @@
+nl:
+  hello: "Hello world"
+  views:
+    pagination:
+      previous: "&lt; Vorige"
+      next: "Volgende &gt;"
+      truncate: "..."
