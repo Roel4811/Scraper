@@ -49,3 +49,4 @@ gem "figaro"
 gem "awesome_print"
 
 gem 'searchkick'
+gem 'kaminari', :git => 'https://github.com/kaminari/kaminari'
