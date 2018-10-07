@@ -1,3 +1,5 @@
+import "./navbar.scss";
+
 import Typeahead from 'typeahead.js';
 import Bloodhound from 'typeahead.js';
 
@@ -42,16 +44,16 @@ function removeOpacity(item) {
   item.classList.remove("add-opacity");
 }
 
-(function() {
-   var searches = new Bloodhound({
-     datumTokenizer: Bloodhound.tokenizers.whitespace,
-     queryTokenizer: Bloodhound.tokenizers.whitespace,
-     remote: {
-       url: '/searches/autocomplete?query=%QUERY',
-       wildcard: '%QUERY'
-     }
-   });
-   $('#products_search').typeahead(null, {
-     source: searches
-   });
-})();
+// (function() {
+//    var searches = new Bloodhound({
+//      datumTokenizer: Bloodhound.tokenizers.whitespace,
+//      queryTokenizer: Bloodhound.tokenizers.whitespace,
+//      remote: {
+//        url: '/searches/autocomplete?query=%QUERY',
+//        wildcard: '%QUERY'
+//      }
+//    });
+//    $('#products_search').typeahead(null, {
+//      source: searches
+//    });
+// })();
