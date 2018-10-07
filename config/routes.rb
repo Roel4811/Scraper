@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/about', to: "application#about"
   get '/contact', to: "application#contact"
   get "/search-products", to: "products#fetch_products", as: "fetch_products"
+  get "/zoeken", to: "products#index"
 
   resources :products, only: [:index, :show]
 
