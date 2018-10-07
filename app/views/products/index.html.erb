@@ -3,11 +3,11 @@
   <%= c("banner") %>
   <div class="container page-body">
     <div class="row">
-      <div class="col-lg-3">
+      <div id="side-menu-wrapper" class="col-lg-3">
         <%= c("side-menu", providers: @providers, brands: @brands) %>
       </div>
-      <div class="col-lg-9">
-        <%= c("main-col", products: @products) %>
+      <div id="main-col-wrapper" class="col-lg-9">
+        <%= c("main-col") %>
       </div>
     </div>
   </div>
