@@ -20,7 +20,14 @@ function loadSearchResultsJs() {
   productCards.forEach(card => card.addEventListener('click', transition));
 }
 
-loadSearchResultsJs();
+loadSearchResultsJs()
+
+var lastPaginator = document.querySelector("a[disabled=disabled]")
+if (lastPaginator) {
+  lastPaginator.addEventListener("click", function(event){
+    event.preventDefault();
+  });
+}
 
 var stateObj = { page: "zoeken" };
 history.pushState(stateObj, "zoeken", "zoeken");
