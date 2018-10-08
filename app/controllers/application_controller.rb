@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   def about
     @providers = Provider.all
     @products = Product.order(:name)
-    @brands = Product.present_brands
+    @brands = Brand.all
     @search = Search.new
 
     respond_to do |format|
@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   def contact
     @providers = Provider.all
     @products = Product.order(:name)
-    @brands = Product.present_brands
+    @brands = Brand.all
     @search = Search.new
 
     respond_to do |format|

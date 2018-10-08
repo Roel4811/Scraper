@@ -3,7 +3,8 @@ class ProductsController < ApplicationController
   def index
     @providers = Provider.all
     @products = Product.order(:name)
-    @brands = Product.present_brands
+    @all_products = @products
+    @brands = Brand.all
     @search = Search.new
   end
 
