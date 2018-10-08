@@ -6,21 +6,26 @@ class SearchesController < ApplicationController
   end
 
   def create
-    @search = Search.create!(search_params)
-
-    redirect_to @search
+    if @search = Search.create!(search_params)
+      redirect_to @search
+    else
+      render 'search_went_wrong'
+    end
   end
 
   def show
-    @products = Product.where(id: @search.products.map(&:id))
+    @all_products = Product.where(id: @search.products.map(&:id))
+    @products = @all_products.order(:name).page(params[:page]).per(9)
     @providers = Provider.all
-    @brands = Product.present_brands
+    @brands = Brand.all
   end
 
   def update
-    @search.update(search_params)
-
-    redirect_to @search
+    if @search.update!(search_params)
+      redirect_to @search
+    else
+      render 'search_went_wrong'
+    end
   end
 
   def autocomplete
@@ -40,6 +45,6 @@ class SearchesController < ApplicationController
   end
 
   def search_params
-    params.require(:search).permit(:keywords, :min_price, :max_price, brands: [], providers: [])
+    params.require(:search).permit(:keywords, :min_price, :max_price, brand_ids: [], provider_ids: [])
   end
 end
