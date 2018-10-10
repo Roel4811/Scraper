@@ -1,6 +1,6 @@
 server '188.166.119.198', port: 22, roles: [:web, :app, :db], primary: true
 
-set :repo_url,        'git@example.com:Roel4811/Scraper.git'
+set :repo_url,        'git@github.com:Roel4811/Scraper.git'
 set :application,     'hardwarehub'
 set :user,            'rails'
 set :puma_threads,    [4, 16]
