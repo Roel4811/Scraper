@@ -36,7 +36,7 @@ set :assets_prefix,   'packs' # added to look for packs made by webpacker
 
 # added two lines
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
-append :linked_files, 'config/database.yml', 'config/secrets.yml'
+append :linked_files, 'config/secrets.yml'
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
