@@ -27,7 +27,7 @@ test:
 
 production:
   <<: *default
-  database: scraper_production
+  database: postgres
   host: ''
   username: rails
   password: <%= ENV['SCRAPER_DATABASE_PASSWORD'] %>
