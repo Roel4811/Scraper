@@ -13,13 +13,12 @@ class Search < ApplicationRecord
   private
 
   def find_products
-    brands = self.brands.map(&:name)
-    providers = self.providers.map(&:name)
-    keywords = self.keywords.split(" ").map(&:downcase) if keywords.present?
+    brands = self.brands.map(&:name).map(&:downcase) if self.brands.present?
+    providers = self.providers.map(&:name).map(&:downcase) if self.providers.present?
+    keywords = self.keywords.split(" ").map(&:downcase) if self.keywords.present?
 
     products = Product.all
 
-    binding.pry
     products = products.products_by_keywords(*keywords) if keywords.present?
     products = products.products_with_providers(*providers) if providers.present?
     products = products.products_with_brands(*brands) if brands.present?
