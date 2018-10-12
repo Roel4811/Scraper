@@ -28,6 +28,6 @@ test:
 production:
   <<: *default
   database: scraper_production
-  host: localhost
+  host: ''
   username: roel
   password: <%= ENV['SCRAPER_DATABASE_PASSWORD'] %>
