@@ -29,5 +29,5 @@ production:
   <<: *default
   database: scraper_production
   host: ''
-  username: roel
+  username: rails
   password: <%= ENV['SCRAPER_DATABASE_PASSWORD'] %>
