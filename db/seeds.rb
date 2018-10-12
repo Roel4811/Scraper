@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Product.delete_all
-Provider.delete_all
-Brand.delete_all
-
+ActiveRecord::Base.connection.execute('TRUNCATE products RESTART IDENTITY')
+ActiveRecord::Base.connection.execute('TRUNCATE providers RESTART IDENTITY')
 providers = Provider.create([{ name: 'coolblue' }, { name: 'bol' }])
+
+ActiveRecord::Base.connection.execute('TRUNCATE brands RESTART IDENTITY')
 brands = Brand.create([
   {
     name: "Xtorm"
