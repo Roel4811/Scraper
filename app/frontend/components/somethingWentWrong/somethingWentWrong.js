@@ -1,0 +1,1 @@
+import "./contactSubmissionSuccess.scss";
