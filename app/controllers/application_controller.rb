@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   def about
     @providers = Provider.all
     @products = Product.order(:name)
+    @all_products = @products
     @brands = Brand.all
     @search = Search.new
 
@@ -19,8 +20,10 @@ class ApplicationController < ActionController::Base
   def contact
     @providers = Provider.all
     @products = Product.order(:name)
+    @all_products = @products
     @brands = Brand.all
     @search = Search.new
+    @contact_submission = ContactSubmission.new
 
     respond_to do |format|
       format.html
@@ -28,5 +31,21 @@ class ApplicationController < ActionController::Base
         render 'contact'
       }
     end
+  end
+
+  def create_contact_submission
+    @contact_submission = ContactSubmission.create(contact_submission_params)
+
+    if @contact_submission.persisted?
+      render 'contact_submission_success'
+    else
+      render 'something_went_wrong'
+    end
+  end
+
+  private
+
+  def contact_submission_params
+    params.require(:contact_submission).permit(:name, :email, :message)
   end
 end
