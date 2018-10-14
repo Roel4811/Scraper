@@ -1,6 +1,23 @@
 <%= c("main-col") do %>
   <h2>Contact</h2>
-  <p class="contact-text">
-    U kunt contact opnemen met ons via onderstaand formulier. Wij proberen altijd zo snel mogelijk te antwoorden. Dit kan maximaal 5 werkdagen duren.
-  </p>
+  <div class="contact-card">
+    <div class="contact-text">
+      U kunt contact opnemen met ons via onderstaand formulier. Wij proberen altijd zo snel mogelijk te antwoorden. Dit kan maximaal 5 werkdagen duren.
+    </div>
+    <div class="contact-form">
+      <%= form_for(@contact_submission, url: contact_submission_path, method: :post, remote: true) do |f| %>
+        <div class="form-group">
+          <%= f.text_field :email, placeholder: "Laat hier uw email-adres indien u een reactie wenst", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :name, placeholder: "Uw naam", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_area :message, placeholder: "Uw bericht", rows: 5, class: "form-control" %>
+        </div>
+
+        <%= f.submit "Verzenden", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
