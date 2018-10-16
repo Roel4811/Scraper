@@ -7,7 +7,22 @@
         <%= c("side-menu", providers: @providers, brands: @brands) %>
       </div>
       <div id="main-col-wrapper" class="col-lg-9">
-        <%= c("main-col") %>
+        <%= c("main-col") do %>
+          <div class="welcome-text">
+            <h2>Welkom op Hardwarehub!</h2>
+            <p>
+              Fijn dat je harwarehub hebt gevonden! Hardwarehub is volop in ontwikkeling om de meest gebruiksvriendelijke prijsvergelijker te worden.
+              Met simpele zoekfuncties en een overzichtelijke presentatie hopen wij jou zo goed mogelijk te helpen. Zo kan jij zo snel mogelijk het product kan vinden dat je zoekt.
+            </p>
+            <p>
+              Hardwarehub onderscheidt zich door niet te vervallen in popus en banners.
+              Bovendien werken wij alleen samen met betrouwbare en klantvriendleijke aanbieders van hardware.
+            </p>
+            <p>
+              Heb je vragen of opmerkingen? Op de contact-pagina kan je een bericht achter laten. Wij komen dan zo spoedig mogelijk bij je terug.
+            </p>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
